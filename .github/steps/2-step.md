@@ -1,30 +1,33 @@
-## Step 2: Getting work done with Copilot
+## Step 2: Copilot으로 실제 작업하기
 
-In the previous step, GitHub Copilot was able to help us onboard to the project. That alone is a huge time saver, but now let's get some work done!
+이전 단계에서 GitHub Copilot을 활용해 프로젝트를 빠르게 파악했습니다. 이제 본격적으로 작업을 진행해 봅시다.
 
-:bug: **THERE IS A BUG ON THE WEBSITE** :bug:
+:bug: **웹사이트에 버그가 있습니다** :bug:
 
-We’ve discovered that something’s off in the signup flow.
-Students can currently register for the same activity **more than once**! Let’s see how far Copilot can take us in uncovering the cause and shaping a clean fix.
+신청 흐름에서 문제가 발견되었습니다.
+현재 학생이 같은 활동을 **여러 번** 신청할 수 있습니다. 원인을 찾고 깔끔하게 수정하는 데 Copilot이 얼마나 도와주는지 확인해 봅시다.
 
-Before we dive in, a quick primer on how Copilot works. 🧑‍🚀
+본격적으로 시작하기 전에 Copilot 동작 방식을 간단히 짚고 넘어가겠습니다. 🧑‍🚀
 
-### 📖 Theory: How Copilot works
+### 📖 이론: Copilot은 어떻게 동작하나요?
 
-In short, you can think of Copilot like a very specialized coworker. To be effective with them, you need to provide them background (context) and clear direction (prompts). Additionally, different people are better at different things because of their unique experiences (models).
+Copilot은 전문성이 높은 동료 개발자처럼 생각하면 이해하기 쉽습니다. 효과적으로 활용하려면 배경 정보(컨텍스트)와 명확한 지시(프롬프트)를 제공해야 합니다. 또한 모델마다 강점이 다를 수 있습니다.
 
-- **How do we provide context?:** In our coding environment, Copilot will automatically consider nearby code and open tabs. If you are using chat, you can also explicitly refer to files.
+- **컨텍스트는 어떻게 제공하나요?:** 코딩 환경에서 Copilot은 주변 코드와 열린 탭을 자동으로 참고합니다. 채팅에서는 파일을 명시적으로 지정할 수도 있습니다.
 
-- **What model should we pick?:** For our exercise, it shouldn't matter too much. Experimenting with different models is part of the fun! That's another lesson! 🤖
+- **어떤 모델을 선택해야 하나요?:** 이번 실습에서는 큰 차이가 없을 수 있습니다. 다양한 모델을 실험해 보는 것도 좋은 학습입니다. 🤖
 
-- **How do I make prompts?:** Being explicit and clear helps Copilot do the best job. But unlike some traditional systems, you can always clarify your direction with followup prompts.
+- **프롬프트는 어떻게 작성하나요?:** 구체적이고 명확할수록 Copilot이 더 정확히 동작합니다. 필요하면 후속 프롬프트로 방향을 계속 보정할 수 있습니다.
 
 > [!TIP]
-> There several other ways to supplement Copilot's knowledge and capabilities like [chat participants](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet?tool=vscode#chat-participants), [chat variables](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet?tool=vscode#chat-variables), [slash commands](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet?tool=vscode#slash-commands-1), and [MCP tools](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+> [chat participants](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet?tool=vscode#chat-participants), [chat variables](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet?tool=vscode#chat-variables), [slash commands](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet?tool=vscode#slash-commands-1), [MCP tools](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) 등으로 Copilot의 지식과 기능을 확장할 수 있습니다.
 
-### :keyboard: Activity: Use Copilot to fix our registration bug :bug:
+### :keyboard: 활동: Copilot으로 신청 버그 수정하기 :bug:
 
-1. Let's ask Copilot to suggest where our bug might be coming from. Open the **Copilot Chat** panel in **Ask mode** and ask the following.
+1. 먼저 버그 원인이 어디인지 Copilot에게 물어봅시다. **Copilot Chat** 패널을 **Ask Mode**로 열고 아래처럼 질문하세요.
+
+   > 🪧 **참고:** 실습 재현성을 위해 아래 영어 프롬프트를 **그대로 복사**해 사용하세요.
+   > 의미: 같은 활동을 두 번 등록할 수 있는 버그의 원인 위치를 코드베이스에서 찾도록 요청합니다.
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -33,18 +36,18 @@ In short, you can think of Copilot like a very specialized coworker. To be effec
    > Where could this bug be coming from?
    > ```
 
-1. Now that we know the issue is in the `src/app.py` file and the `signup_for_activity` method, let's follow Copilot's recommendation and go fix it (semi-manually). We'll start with a comment and let Copilot finish the correction.
-   1. Open the `src/app.py` file.
+1. 문제가 `src/app.py`의 `signup_for_activity` 메서드에 있다는 것을 알았으니, Copilot 제안을 따라 반수동 방식으로 수정해 봅시다. 먼저 주석을 입력하고 Copilot이 이어서 완성하게 합니다.
+   1. `src/app.py` 파일을 엽니다.
 
-      > 💡 **Tip:** If Copilot mentioned `src/app.py` in chat, you can click the file directly in the chat view to open it.
+      > 💡 **팁:** 채팅에서 `src/app.py`가 언급되었다면, 채팅 뷰에서 파일명을 클릭해 바로 열 수 있습니다.
 
-   1. Near the bottom of the file, find the `signup_for_activity` function.
+   1. 파일 하단 근처에서 `signup_for_activity` 함수를 찾습니다.
 
-   1. Find the comment line that describes adding a student. Above this is where it seems logical to do our registration check.
+   1. 학생을 추가하는 주석 라인을 찾습니다. 그 위에 중복 신청 검사 로직을 넣는 것이 자연스럽습니다.
 
-   1. Enter the below comment and press enter to go to the next line. After a moment, temporary shadow text will appear with a suggestion from Copilot! Nice! :tada:
+   1. 아래 주석을 입력하고 Enter로 다음 줄로 이동하세요. 잠시 후 Copilot 제안이 그림자 텍스트로 나타납니다. :tada:
 
-      Comment:
+      주석:
 
       ```python
       # Validate student is not already signed up
@@ -52,12 +55,12 @@ In short, you can think of Copilot like a very specialized coworker. To be effec
 
       <img width="700" alt="Copilot shadow text suggestion in the editor" src="../images/shadow-text.gif" />
 
-   1. Press `Tab` to accept Copilot's suggestion and convert the shadow text to code.
+   1. `Tab`을 눌러 Copilot 제안을 수락하고 실제 코드로 반영합니다.
 
    <details>
-   <summary>Example Results</summary><br/>
+   <summary>예시 결과</summary><br/>
 
-   Copilot is growing every day and may not always produce the same results. If you are unhappy with the suggestions, here is an example of a valid suggestion result we produced during the making of this exercise. You can use it to continue forward.
+   Copilot은 계속 발전 중이므로 결과가 항상 동일하지 않을 수 있습니다. 제안 결과가 마음에 들지 않으면 아래 예시를 참고해 진행해도 됩니다.
 
    ```python
    @app.post("/activities/{activity_name}/signup")
@@ -81,24 +84,27 @@ In short, you can think of Copilot like a very specialized coworker. To be effec
 
    </details>
 
-### :keyboard: Activity: Let Copilot generate sample data 📋
+### :keyboard: 활동: Copilot으로 샘플 데이터 생성하기 📋
 
-In new project developments, it's often helpful to have some realistic looking fake data for testing. Copilot is excellent at this task, so let's add some more sample activities and introduce another way to interact with Copilot using **Inline Chat**
+새 프로젝트에서는 테스트용으로 현실적인 샘플 데이터가 있으면 매우 유용합니다. Copilot은 이런 작업에 강하므로, 활동 데이터를 추가하면서 **Inline Chat** 사용법도 함께 익혀봅시다.
 
-**Inline Chat** and the **Copilot Chat** panel are similar, but differ in scope: Copilot Chat handles broader, multi-file or exploratory questions; Inline Chat is faster when you want targeted help on the exact line or block in front of you.
+**Inline Chat**과 **Copilot Chat** 패널은 유사하지만 범위가 다릅니다. Copilot Chat은 다중 파일/탐색형 질문에 유리하고, Inline Chat은 현재 줄이나 선택 블록에 대한 빠른 보조에 적합합니다.
 
-1. Near the top of the `src/app.py` file (about line 23), find the `activities` variable, where our example extracurricular activities are configured.
+1. `src/app.py` 상단(약 23줄 부근)에서 예시 활동이 정의된 `activities` 변수를 찾습니다.
 
-1. Highlight the entire `activities` dictionary by clicking and dragging your mouse from the top to the bottom of the dictionary. This will help provide context to Copilot for our next prompt.
+1. `activities` 딕셔너리 전체를 드래그로 선택합니다. 다음 프롬프트에서 Copilot이 문맥을 이해하는 데 도움이 됩니다.
 
    <img width="700" alt="Highlighted activities dictionary before opening inline chat" src="../images/activities-dict-highlighted.png" />
 
 
-1. Bring up Copilot inline chat by using the keyboard command `Ctrl + I` (windows) or `Cmd + I` (mac).
+1. `Ctrl + I`(Windows) 또는 `Cmd + I`(macOS)로 Copilot Inline Chat을 엽니다.
 
-   > 💡 **Tip:** Another way to bring up Copilot inline chat is: `right click` on any of the selected lines -> `Open Inline Chat`.
+   > 💡 **팁:** 선택된 줄에서 마우스 오른쪽 버튼을 누르고 `Open Inline Chat`을 선택해도 됩니다.
 
-1. Enter the following prompt text and press enter or the **Send** button on the right.
+1. 아래 프롬프트를 입력하고 Enter 또는 오른쪽 **Send** 버튼을 누릅니다.
+
+   > 🪧 **참고:** 실습 재현성을 위해 아래 영어 프롬프트를 **그대로 복사**해 사용하세요.
+   > 의미: 스포츠 2개, 예술 2개, 지적 활동 2개를 추가하도록 요청합니다.
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -107,12 +113,12 @@ In new project developments, it's often helpful to have some realistic looking f
    > activities, and 2 more intellectual activities.
    > ```
 
-1. After a moment, Copilot will directly start making changes to the code. The changes will be stylized differently to make any additions and removals easy to identify. Take a moment to inspect and verify the changes, and then press the **Keep** button.
+1. 잠시 후 Copilot이 코드를 직접 수정합니다. 추가/삭제가 구분되어 표시되므로 변경 내용을 확인한 뒤 **Keep** 버튼을 누르세요.
 
    <details>
-   <summary>Example Results</summary><br/>
+   <summary>예시 결과</summary><br/>
 
-   Copilot is growing every day and may not always produce the same results. If you are unhappy with the suggestions, here is an example result we produced during the making of this exercise. You can use it to continue forward, if having trouble.
+   Copilot은 항상 동일한 결과를 생성하지 않을 수 있습니다. 결과가 마음에 들지 않거나 진행이 어려우면 아래 예시를 참고해 계속 진행하세요.
 
    ```python
    # In-memory activity database
@@ -176,34 +182,34 @@ In new project developments, it's often helpful to have some realistic looking f
 
    </details>
 
-1. You can now go to your website and verify that the new activities are visible.
+1. 웹사이트로 돌아가 새 활동이 표시되는지 확인합니다.
 
-### :keyboard: Activity: Use Copilot to describe our work 💬
+### :keyboard: 활동: Copilot으로 작업 내용 요약하기 💬
 
-Nice work fixing that bug and expanding the example activities! Now let's get our work committed and pushed to GitHub, again with the help of Copilot!
+버그를 고치고 샘플 활동도 잘 확장했습니다. 이제 Copilot의 도움으로 커밋과 푸시까지 진행해 봅시다.
 
-1. In the left sidebar, select the `Source Control` tab.
+1. 왼쪽 사이드바에서 `Source Control` 탭을 선택합니다.
 
-   > 💡 **Tip:** Opening a file from the source control area will show the differences to the original rather than simply opening it.
+   > 💡 **팁:** Source Control 영역에서 파일을 열면 원본 대비 변경점(diff)을 바로 확인할 수 있습니다.
 
-1. Find the `app.py` file and press the `+` sign to collect your changes together in the staging area.
+1. `app.py` 파일 옆 `+` 버튼을 눌러 변경사항을 스테이징합니다.
 
    ![image](../images/staging-changes-icon.png)
 
-1. Above the list of staged changes, find the **Message** text box, but **don't enter anything** for now.
-   - Typically, you would write a short description of the changes here, but now we have Copilot to help out!
+1. 스테이징 목록 위의 **Message** 입력칸을 찾되, 지금은 **아무 것도 입력하지 마세요**.
+   - 보통은 직접 커밋 메시지를 작성하지만, 이번에는 Copilot을 사용합니다.
 
-1. To the right of the **Message** text box, find and click the **Generate Commit Message** button (sparkles icon).
+1. **Message** 입력칸 오른쪽의 **Generate Commit Message** 버튼(반짝이 아이콘)을 누릅니다.
 
-1. Press the **Commit** button and **Sync Changes** button to push your changes to GitHub.
+1. **Commit** 버튼과 **Sync Changes** 버튼을 눌러 GitHub에 푸시합니다.
 
-1. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+1. Mona가 작업을 검사하고 피드백 및 다음 레슨을 안내할 때까지 잠시 기다립니다.
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>문제가 있나요? 🤷</summary><br/>
 
-If you don't get feedback, here are some things to check:
+피드백이 오지 않으면 아래를 확인하세요.
 
-- Make sure your pushed the `src/app.py` file changes to the branch `accelerate-with-copilot`.
+- `src/app.py` 변경사항을 `accelerate-with-copilot` 브랜치로 푸시했는지 확인하세요.
 
 </details>

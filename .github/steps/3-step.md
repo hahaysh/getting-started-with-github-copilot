@@ -1,58 +1,61 @@
-## Step 3: Engage Hyperdrive - Copilot Agent Mode 🚀
+## Step 3: Hyperdrive 시작 - Copilot Agent Mode 🚀
 
-### 📖 Theory: What is Copilot Agent Mode?
+### 📖 이론: Copilot Agent Mode란?
 
-Copilot [agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) is the next evolution in AI-assisted coding. Acting as an autonomous peer programmer, it performs multi-step coding tasks at your command.
+Copilot [agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)는 AI 보조 코딩의 다음 단계입니다. 자율적인 페어 프로그래머처럼 동작하며, 지시에 따라 여러 단계를 거치는 코딩 작업을 수행합니다.
 
-Copilot Agent Mode responds to compile and lint errors, monitors terminal and test output, and auto-corrects in a loop until the task is completed.
+Copilot Agent Mode는 컴파일/린트 오류에 대응하고, 터미널 및 테스트 출력을 모니터링하며, 작업이 완료될 때까지 반복적으로 자동 수정합니다.
 
-#### Agent Mode (at a glance)
+#### Agent Mode 한눈에 보기
 
-| Aspect | 👩‍🚀 Agent Mode |
+| 항목 | 👩‍🚀 Agent Mode |
 | --- | --- |
-| Autonomy and planning | Breaks down high-level requests into multi-step work and iterates until the task is complete. |
-| Context gathering | Uses your current context and can discover additional relevant files when needed. |
-| Tool use | Selects and invokes tools automatically; you can also direct tools with mentions like `#codebase`. |
-| Approval and safety gates | Sensitive actions can require approval before execution, helping you stay in control. |
+| 자율성 및 계획 | 상위 수준 요청을 다단계 작업으로 분해하고, 완료될 때까지 반복 수행합니다. |
+| 컨텍스트 수집 | 현재 컨텍스트를 사용하고 필요 시 관련 파일을 추가 탐색합니다. |
+| 도구 사용 | 도구를 자동 선택/실행하며, `#codebase` 같은 멘션으로 직접 지시할 수도 있습니다. |
+| 승인 및 안전 장치 | 민감한 작업은 실행 전 승인 절차를 거쳐 제어권을 유지할 수 있습니다. |
 
-#### 🧰 Agent Mode Tools
+#### 🧰 Agent Mode 도구
 
-Agent mode uses tools to accomplish specialized tasks while processing a user request. Examples of such tasks are:
+Agent mode는 사용자 요청을 처리하면서 특화된 작업을 수행하기 위해 도구를 사용합니다. 예시는 다음과 같습니다.
 
-- Finding relevant files to complete your prompt
-- Fetching contents of a webpage
-- Running tests or terminal commands
+- 프롬프트 수행에 필요한 관련 파일 찾기
+- 웹페이지 내용 가져오기
+- 테스트 또는 터미널 명령 실행
 
 > [!TIP]
-> While VS Code provides many built‑in tools, you can also provide Agent Mode more domain‑specific powers through **MCP tools**.
+> VS Code에는 기본 제공 도구가 많지만, **MCP tools**를 통해 Agent Mode에 도메인 특화 기능을 추가할 수도 있습니다.
 >
-> Read more on [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) and [GitHub MCP Server](https://github.com/github/github-mcp-server)
+> 자세한 내용은 [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)와 [GitHub MCP Server](https://github.com/github/github-mcp-server)를 참고하세요.
 
-Now, let's give **Agent Mode** a try! 👩‍🚀
+이제 **Agent Mode**를 직접 사용해 봅시다. 👩‍🚀
 
-### :keyboard: Activity: Use Copilot to add a new feature! :rocket:
+### :keyboard: 활동: Copilot으로 새 기능 추가하기 :rocket:
 
-Our website lists activities, but it's keeping the guest list secret 🤫 
+현재 웹사이트는 활동 목록만 보여주고 참가자 목록은 숨겨져 있습니다. 🤫
 
-Let's use Copilot to change the website to display signed up students under each activity!
+Copilot을 사용해 각 활동 카드 아래에 신청한 학생 목록이 보이도록 바꿔봅시다.
 
-1. At the bottom of Copilot Chat window, use the dropdown to switch to **Agent** mode.
+1. Copilot Chat 창 하단 드롭다운에서 **Agent** 모드로 전환합니다.
 
    <img width="350" alt="image" src="../images/agent-mode-dropdown.png" />
 
-1. Open the files related to our webpage then drag each editor window (or file) to the chat panel, informing Copilot to use them as context.
+1. 웹페이지 관련 파일을 열고 각 에디터 창(또는 파일)을 채팅 패널로 드래그해 컨텍스트로 추가합니다.
 
    - `src/static/app.js`
    - `src/static/index.html`
    - `src/static/styles.css`
 
-   > 🪧 **Note:** Adding files as context is optional. If you skip this, Copilot Agent Mode can still use tools like `#codebase` to search for relevant files from your prompt. Adding specific files helps point Copilot in the right direction, which is especially useful in larger codebases.
+   > 🪧 **참고:** 파일 컨텍스트 추가는 선택 사항입니다. 생략해도 Copilot Agent Mode는 `#codebase` 등 도구로 관련 파일을 찾을 수 있습니다. 다만 대규모 코드베이스에서는 특정 파일을 추가해 주는 것이 더 효과적입니다.
 
    <img width="400" alt="image showing files added to context" src="../images/files-added-to-context.png" />
 
-   > 💡 **Tip:** You can also use the **Add Context...** button to provide other sources of context items, like a GitHub issue or the results of a terminal window.
+   > 💡 **팁:** **Add Context...** 버튼을 이용해 GitHub 이슈나 터미널 출력 등 다른 컨텍스트도 추가할 수 있습니다.
 
-1. Ask Copilot to update our project to display the current participants of activities. Wait a moment for the edit suggestions to arrive and be applied.
+1. Copilot에게 활동별 현재 참가자 표시 기능을 추가해 달라고 요청합니다. 편집 제안이 생성되고 적용될 때까지 잠시 기다립니다.
+
+   > 🪧 **참고:** 실습 재현성을 위해 아래 영어 프롬프트를 **그대로 복사**해 사용하세요.
+   > 의미: 활동 카드에 참가자 목록(불릿 리스트)을 보기 좋게 추가해 달라는 요청입니다.
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -62,50 +65,53 @@ Let's use Copilot to change the website to display signed up students under each
    > Remember to make it pretty!
    > ```
 
-   After Copilot finishes work, you are in control of what changes get to stay. 
+   Copilot 작업이 끝나면 어떤 변경을 유지할지 사용자가 최종 결정합니다.
 
-   Using the **Keep** buttons shown below, you can accept/discard all changes or review and decide change by change. This can be done either from the chat panel view or while inspecting each edited file.
+   아래 **Keep** 버튼으로 전체 수락/폐기 또는 변경별 선택 적용이 가능합니다. 채팅 패널이나 각 수정 파일에서 모두 수행할 수 있습니다.
 
       <img width="900" alt="buttons to keep or discard changes" src="../images/review-changes-buttons.png" />
 
 
-1. Before we simply accept the changes, please check our website again and verify everything is updated as expected. 
+1. 변경을 바로 수락하기 전에 웹사이트를 다시 확인해 의도대로 업데이트되었는지 검증하세요.
    
-   Here is an example of an updated activity card. You may need to restart the app or refresh the page.
+   아래는 업데이트된 활동 카드 예시입니다. 앱 재시작이나 페이지 새로고침이 필요할 수 있습니다.
 
    <img width="350" alt="Activity card with participant info" src="../images/activity-card-with-participants.png" />
 
-   > 🪧 **Note:** Your activity card may look different. Copilot won't always produce the same results.
+   > 🪧 **참고:** 활동 카드 모양은 다를 수 있습니다. Copilot 결과는 항상 동일하지 않습니다.
 
    <details>
-   <summary>Need help? 🤷</summary><br/>
-   If the website is not loading, here are some things to check.
+   <summary>도움이 필요하신가요? 🤷</summary><br/>
+   웹사이트가 로드되지 않으면 아래를 확인하세요.
 
-   - Restart the VS Code Debugger to make sure the latest version of the website is served.
-   - If you forgot the url, or closed the window, please review step 1.
-   - Try hard refreshing the webpage or opening in a private window so it downloads a fresh copy.
+   - VS Code Debugger를 재시작해 최신 버전이 서빙되도록 합니다.
+   - URL을 잊었거나 창을 닫았다면 Step 1을 다시 확인하세요.
+   - 강력 새로고침(hard refresh) 또는 시크릿 창에서 열어 캐시를 우회합니다.
 
    </details>
 
-1. Now that we have confirmed our changes are good, use the panel to cycle through each suggested edit and press **Keep** to apply the change.
+1. 변경 사항이 정상임을 확인했다면 패널에서 각 제안을 검토하며 **Keep**으로 적용합니다.
 
-   > 💡 **Tip:** You can accept the changes directly, modify them, or provide additional instruction to refine them using the chat interface.
+   > 💡 **팁:** 변경을 바로 수락하거나 직접 수정할 수 있으며, 채팅으로 추가 지시를 내려 결과를 더 다듬을 수 있습니다.
 
-### :keyboard: Activity: Use Agent mode to add functional "unregister" buttons
+### :keyboard: 활동: Agent mode로 참가 취소 버튼 추가하기
 
-Let's experiment with some more open-ended requests that will add more functionality to our web application.
+이번에는 좀 더 개방형 요청으로 웹 애플리케이션 기능을 확장해 보겠습니다.
 
-If you don't get the desired results, you can try other models or provide follow-up feedback to refine the results.
+원하는 결과가 나오지 않으면 다른 모델을 시도하거나 후속 피드백으로 결과를 보정해 보세요.
 
-1. Make sure your Copilot is still in **Agent** mode.
+1. Copilot이 계속 **Agent** 모드인지 확인합니다.
 
    <img width="250" alt="agent mode" src="../images/agent-mode-dropdown.png" />
 
-1. Click on the **Tools** icon and explore all Tools currently available to Copilot Agent Mode.
+1. **Tools** 아이콘을 눌러 현재 Copilot Agent Mode에서 사용 가능한 도구를 확인합니다.
 
    <img width="250"  alt="tools icon" src="../images/tools-icon.png" />
 
-1. Time for our test! Let's ask Copilot to add functionality for removing participants.
+1. 이제 테스트입니다. Copilot에게 참가자 제거 기능을 추가하도록 요청합니다.
+
+   > 🪧 **참고:** 실습 재현성을 위해 아래 영어 프롬프트를 **그대로 복사**해 사용하세요.
+   > 의미: 참가자 옆 삭제 아이콘 추가, 불릿 숨김, 클릭 시 참가 취소 기능을 요청합니다.
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -114,18 +120,21 @@ If you don't get the desired results, you can try other models or provide follow
    > When clicked, it will unregister that participant from the activity.
    > ```
 
-   The `#codebase` tool is used by Copilot to find relevant files, code chunks that are relevant to the task at hand.
+   `#codebase` 도구는 현재 작업과 관련된 파일/코드 조각을 찾는 데 사용됩니다.
 
-   > 🪧 **Note:** In this lab we explicitly include the `#codebase` tool to get the most repeatable results.
-   > Feel free to try the prompt **without** `#codebase` and observe whether Agent Mode decides to gather broader project context on its own.
+   > 🪧 **참고:** 이 실습에서는 재현성을 높이기 위해 `#codebase`를 명시적으로 사용합니다.
+   > `#codebase` 없이도 시도해 보고, Agent Mode가 스스로 더 넓은 컨텍스트를 수집하는지 확인해 보세요.
 
-1. When Copilot is finished, inspect the code changes and the results on the website. If you like the results, press the **Keep** button. If not, try providing Copilot some feedback to refine the results.
+1. Copilot 작업이 끝나면 코드 변경과 웹사이트 결과를 확인하세요. 결과가 괜찮다면 **Keep**을 누르고, 아니라면 피드백으로 개선합니다.
 
-   > 🪧 **Note:** If you don't see updates on the website, you may need to restart the debugger
+   > 🪧 **참고:** 웹사이트에 변화가 보이지 않으면 디버거 재시작이 필요할 수 있습니다.
 
-1. Ask Copilot to fix a registration bug.
+1. Copilot에게 등록 관련 버그 수정을 요청합니다.
 
-   > 💡 **Tip:** We recommend testing the registration flow yourself so you can clearly see the before/after changes behavior.
+   > 🪧 **참고:** 실습 재현성을 위해 아래 영어 프롬프트를 **그대로 복사**해 사용하세요.
+   > 의미: 참가자 등록 후 새로고침해야 반영되는 버그를 수정해 달라는 요청입니다.
+
+   > 💡 **팁:** 등록 흐름을 직접 테스트해 수정 전/후 동작 차이를 확인하는 것을 권장합니다.
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -134,10 +143,10 @@ If you don't get the desired results, you can try other models or provide follow
    > When a participant is registered, the page must be refreshed to see the change on the activity.
    > ```
 
-1. When Copilot is finished, inspect the results and validate the registration flow on the website.
+1. Copilot 완료 후 결과를 검토하고 웹사이트에서 등록 흐름을 검증합니다.
 
-   If you like the results, press the **Keep** button. If not, try providing Copilot some feedback.
+   결과가 마음에 들면 **Keep**을 누르고, 아니라면 추가 피드백을 제공하세요.
 
-1. **Commit** and **push** all your changes to the `accelerate-with-copilot` branch.
+1. 모든 변경을 `accelerate-with-copilot` 브랜치에 **commit**하고 **push**합니다.
 
-1. Wait for Mona to check your work and share the next step.
+1. Mona가 작업을 검사하고 다음 단계를 안내할 때까지 기다립니다.

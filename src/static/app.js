@@ -4,16 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
   const messageDiv = document.getElementById("message");
 
-  // Function to fetch activities from API
+  // API에서 활동 목록을 가져오는 함수
   async function fetchActivities() {
     try {
       const response = await fetch("/activities");
       const activities = await response.json();
 
-      // Clear loading message
+      // 로딩 메시지 제거
       activitiesList.innerHTML = "";
 
-      // Populate activities list
+      // 활동 목록 렌더링
       Object.entries(activities).forEach(([name, details]) => {
         const activityCard = document.createElement("div");
         activityCard.className = "activity-card";
@@ -23,25 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
-          <p><strong>Schedule:</strong> ${details.schedule}</p>
-          <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <p><strong>일정:</strong> ${details.schedule}</p>
+          <p><strong>잔여 인원:</strong> ${spotsLeft}자리 남음</p>
         `;
 
         activitiesList.appendChild(activityCard);
 
-        // Add option to select dropdown
+        // 선택 드롭다운에 활동 옵션 추가
         const option = document.createElement("option");
         option.value = name;
         option.textContent = name;
         activitySelect.appendChild(option);
       });
     } catch (error) {
-      activitiesList.innerHTML = "<p>Failed to load activities. Please try again later.</p>";
+      activitiesList.innerHTML = "<p>활동 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</p>";
       console.error("Error fetching activities:", error);
     }
   }
 
-  // Handle form submission
+  // 신청 폼 제출 처리
   signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -63,24 +63,24 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.className = "success";
         signupForm.reset();
       } else {
-        messageDiv.textContent = result.detail || "An error occurred";
+        messageDiv.textContent = result.detail || "오류가 발생했습니다";
         messageDiv.className = "error";
       }
 
       messageDiv.classList.remove("hidden");
 
-      // Hide message after 5 seconds
+      // 5초 후 메시지 숨김
       setTimeout(() => {
         messageDiv.classList.add("hidden");
       }, 5000);
     } catch (error) {
-      messageDiv.textContent = "Failed to sign up. Please try again.";
+      messageDiv.textContent = "신청에 실패했습니다. 다시 시도해 주세요.";
       messageDiv.className = "error";
       messageDiv.classList.remove("hidden");
       console.error("Error signing up:", error);
     }
   });
 
-  // Initialize app
+  // 앱 초기화
   fetchActivities();
 });

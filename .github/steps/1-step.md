@@ -1,67 +1,72 @@
-## Step 1: Hello Copilot
+## Step 1: Copilot 시작하기
 
-Welcome to your **"Getting Started with GitHub Copilot"** exercise! :robot:
+**Getting Started with GitHub Copilot** 실습에 오신 것을 환영합니다! :robot:
 
-In this exercise, you will be using different GitHub Copilot features to work on a website that allows students of Mergington High School to sign up for extracurricular activities. 🎻 ⚽️ ♟️
+이번 실습에서는 GitHub Copilot의 다양한 기능을 사용해, Mergington High School 학생들이 방과후 활동을 신청할 수 있는 웹사이트를 개선합니다. 🎻 ⚽️ ♟️
 
 <img width="600" alt="screenshot of Mergington High School WebApp" src="../images/mergington-high-school-webapp.png" />
 
-### 📖 Theory: Getting to know GitHub Copilot
+### 📖 이론: GitHub Copilot 알아보기
 
 <img width="150" align="right" alt="copilot logo" src="../images/copilot-logo.png" />
 
-GitHub Copilot is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration.
+GitHub Copilot은 더 빠르고 적은 노력으로 코드를 작성할 수 있도록 도와주는 AI 코딩 도우미입니다. 덕분에 문제 해결과 협업에 더 집중할 수 있습니다.
 
-GitHub Copilot has been proven to increase developer productivity and accelerate the pace of software development. For more information, see [Research: quantifying GitHub Copilot’s impact on developer productivity and happiness in the GitHub blog.](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/)
+GitHub Copilot은 개발자 생산성을 높이고 소프트웨어 개발 속도를 향상시키는 데 효과가 있음이 입증되었습니다. 자세한 내용은 [GitHub 블로그 연구 글](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/)을 참고하세요.
 
-As you work in your IDE, you'll most often interact with GitHub Copilot in the following ways:
+IDE에서 작업할 때 가장 자주 사용하게 될 상호작용 방식은 다음과 같습니다.
 
-| Interaction Mode          | 📝 Description                                                                                                                 | 🎯 Best For                                                                                                     |
+| 상호작용 모드 | 📝 설명 | 🎯 적합한 용도 |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| **⚡ Inline suggestions** | AI-powered code suggestions that appear as you type, offering context-aware completions from single lines to entire functions. | Completion of the current line, sometimes a whole new block of code                                             |
-| **💭 Inline Chat**        | Interactive chat scoped to your current file or selection. Ask questions about specific code blocks.                           | Code explanations, debugging specific functions, targeted improvements                                          |
-| **💬 Ask Mode**           | Optimized for answering questions about your codebase, coding, and general technology concepts.                                | Understanding how code works, brainstorming ideas, asking questions                                             |
-| **🤖 Agent Mode**         | Recommended default mode for most coding tasks: autonomous edits, tool use, and follow-through until the task is done.         | Daily coding tasks, from scoped fixes to larger multi-file implementation work                                   |
-| **🧭 Plan Agent**         | Optimized for drafting a plan and asking clarifying questions before any code changes are made.                                | When you want a reviewed plan first, then hand off to implementation                                            |
+| **⚡ Inline suggestions** | 입력 중에 나타나는 AI 코드 제안으로, 한 줄부터 함수 단위까지 문맥 기반 완성을 제공합니다. | 현재 줄을 빠르게 완성하거나 코드 블록을 생성할 때 |
+| **💭 Inline Chat**        | 현재 파일 또는 선택 영역에 범위가 제한된 대화형 채팅입니다. 특정 코드 블록에 대해 질문할 수 있습니다. | 코드 설명, 특정 함수 디버깅, 국소 개선 |
+| **💬 Ask Mode**           | 코드베이스, 코딩, 일반 기술 개념 관련 질문 응답에 최적화되어 있습니다. | 코드 이해, 아이디어 브레인스토밍, 질의응답 |
+| **🤖 Agent Mode**         | 대부분의 코딩 작업에 권장되는 기본 모드로, 작업 완료까지 자율 편집/도구 사용/후속 처리를 수행합니다. | 일상적인 코딩 작업부터 다중 파일 구현 작업까지 |
+| **🧭 Plan Agent**         | 코드 변경 전 계획 수립과 명확화 질문에 최적화되어 있습니다. | 먼저 계획을 검토한 뒤 구현으로 넘기고 싶을 때 |
 
-As you work, you'll find GitHub Copilot can help out in several places across the `github.com` website and in your favorite coding environments such as VS Code, Jet Brains, and Xcode!
+실습을 진행하다 보면 GitHub Copilot이 github.com 웹사이트는 물론 VS Code, JetBrains, Xcode 같은 다양한 개발 환경에서 도움을 줄 수 있음을 확인할 수 있습니다.
 
-For today's coding though, we will practice with VS Code in a pre-configured development environment known as a [GitHub Codespace](https://github.com/features/codespaces).
+이번 실습에서는 [GitHub Codespaces](https://github.com/features/codespaces)라는 사전 구성된 개발 환경에서 VS Code를 사용해 진행합니다.
+
+> 🪧 **참고:** 아래 단계의 버튼/메뉴 이름은 영문 UI 기준입니다. VS Code를 한국어 UI로 사용 중이면 의미가 같은 메뉴를 선택하세요.
 
 > [!TIP]
-> You can learn more about current and upcoming features in the [GitHub Copilot Features](https://docs.github.com/en/copilot/about-github-copilot/github-copilot-features) documentation.
+> 현재 및 예정된 기능은 [GitHub Copilot Features](https://docs.github.com/en/copilot/about-github-copilot/github-copilot-features) 문서에서 확인할 수 있습니다.
 
-### :keyboard: Activity: Get a project intro from Copilot Chat
+### :keyboard: 활동: Copilot Chat으로 프로젝트 소개 받기
 
-Let's start up our development environment, use copilot to learn a bit about the project, and then give it a test run.
+개발 환경을 시작하고 Copilot으로 프로젝트를 간단히 파악한 뒤, 실제로 실행해 봅시다.
 
-1. Use the below button to open the **Create Codespace** page in a new tab. Use the default configuration.
+1. 아래 버튼을 눌러 새 탭에서 **Create Codespace** 페이지를 엽니다. (GitHub 제품 명칭은 Codespaces입니다.) 기본 설정을 그대로 사용하세요.
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 
-1. Confirm the **Repository** field is your copy of the exercise, not the original, then click the green **Create Codespace** button.
-   - ✅ Your copy: `/{{full_repo_name}}`
-   - ❌ Original: `/skills/getting-started-with-github-copilot`
+1. **Repository** 항목이 원본이 아닌 내 실습 복제본인지 확인한 후, 초록색 **Create Codespace** 버튼을 클릭하세요.
+   - ✅ 내 복제본: `/{{full_repo_name}}`
+   - ❌ 원본: `/skills/getting-started-with-github-copilot`
 
-1. Wait a moment for Visual Studio Code to load in your browser.
+1. 브라우저에서 Visual Studio Code가 로드될 때까지 잠시 기다립니다.
 
-1. In the left sidebar, click the extensions tab and verify that the `GitHub Copilot` and `Python` extensions are installed and enabled.
+1. 왼쪽 사이드바에서 Extensions 탭을 열고, `GitHub Copilot` 및 `Python` 확장이 설치 및 활성화되어 있는지 확인합니다.
 
    <img width="350" alt="copilot extension for VS Code" src="../images/copilot-extension-vscode.png" />
 
    <img width="350" alt="python extension for VS Code" src="../images/python-extension-vscode.png" />
 
-1. At the top of VS Code, locate and click the **Toggle Chat icon** to open a Copilot Chat side panel.
+1. VS Code 상단에서 **Toggle Chat 아이콘**을 눌러 Copilot Chat 사이드 패널을 엽니다.
 
    <img width="150" alt="image" src="../images/toggle-chat-icon.png" />
 
-   > 🪧 **Note:** If this is your first time using GitHub Copilot, you will need to accept the usage terms to continue.
+   > 🪧 **참고:** GitHub Copilot을 처음 사용한다면, 진행 전에 이용 약관 동의가 필요합니다.
 
-1. Make sure you are in **Ask Mode** for our first interaction
+1. 첫 번째 상호작용을 위해 **Ask Mode**로 전환되어 있는지 확인하세요.
 
    <img width="350" alt="screenshot showing Ask Mode selection in Copilot Chat" src="../images/ask-mode-selection.png" />
 
-1. Enter the below prompt to ask Copilot to introduce you to the project.
+1. 아래 프롬프트를 입력해 Copilot에게 프로젝트 소개를 요청합니다.
+
+   > 🪧 **참고:** 실습 재현성을 위해 아래 영어 프롬프트를 **그대로 복사**해 사용하세요.
+   > 의미: 프로젝트 구조를 간단히 설명하고 실행 방법을 물어봅니다.
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -70,29 +75,32 @@ Let's start up our development environment, use copilot to learn a bit about the
    > What should I do to run it?
    > ```
 
-   > 🪧 **Note:** It is not necessary to follow Copilot's recommended instructions. We have already prepared the environment for you.
+   > 🪧 **참고:** Copilot이 제안하는 실행 절차를 그대로 따를 필요는 없습니다. 실습 환경은 이미 준비되어 있습니다.
 
-1. Now that we know a bit more about the project, let's actually try running it! In the left sidebar, select the `Run and Debug` tab and then press the **Start Debugging** icon.
+1. 이제 프로젝트를 직접 실행해 봅시다. 왼쪽 사이드바에서 `Run and Debug` 탭을 선택한 뒤 **Start Debugging** 아이콘을 누르세요.
 
    <img width="300" alt="image" src="../images/run-and-debug-tab.png" />
 
-1. We want to see our webpage running in a browser, so let's find the url and port. If it isn't visible, expand the lower panel and select the **Ports** tab.
+1. 브라우저에서 웹페이지를 보기 위해 URL과 포트를 확인합니다. 보이지 않으면 하단 패널을 펼쳐 **Ports** 탭을 선택하세요.
 
-1. In the list, find port `8000` and the related link. Hover over the link and select the **Open in browser** icon.
+1. 목록에서 포트 `8000`과 해당 링크를 찾고, 링크에 마우스를 올린 뒤 **Open in browser** 아이콘을 선택합니다.
 
    ![image](../images/open-in-browser-icon.png)
 
-### :keyboard: Activity: Use Copilot to help remember a terminal command 🙋
+### :keyboard: 활동: Copilot으로 터미널 명령 기억하기 🙋
 
-Great work! Now that we are familiar with the app and we know it works, let's ask copilot for help starting a branch so we can do some customizing.
+잘하셨습니다. 앱이 정상 동작하는 것도 확인했으니, 이제 커스터마이징을 위해 브랜치를 만드는 작업을 Copilot 도움으로 진행해 봅시다.
 
-1. In VS Code's bottom panel, select the **Terminal** tab and on the right side click the plus `+` sign to create a new terminal window.
+1. VS Code 하단 패널에서 **Terminal** 탭을 선택하고, 오른쪽의 `+` 버튼을 눌러 새 터미널 창을 엽니다.
 
-   > 🪧 **Note:** This will avoid stopping the existing debug session that is hosting our web application service.
+   > 🪧 **참고:** 이렇게 하면 현재 웹 애플리케이션을 호스팅 중인 디버그 세션을 중단하지 않을 수 있습니다.
 
-1. Within the new terminal window use the keyboard shortcut `Ctrl + I` (windows) or `Cmd + I` (mac) to bring up **Copilot's Terminal Inline Chat**.
+1. 새 터미널 창에서 `Ctrl + I`(Windows) 또는 `Cmd + I`(macOS) 단축키로 **Copilot Terminal Inline Chat**을 엽니다.
 
-1. Let's ask Copilot to help us remember a command we have forgotten: creating a branch and publishing it.
+1. Copilot에게 브랜치 생성 및 게시 명령을 물어봅니다.
+
+   > 🪧 **참고:** 실습 재현성을 위해 아래 영어 프롬프트를 **그대로 복사**해 사용하세요.
+   > 의미: `accelerate-with-copilot` 브랜치를 생성하고 원격에 게시하는 방법을 묻습니다.
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -100,20 +108,20 @@ Great work! Now that we are familiar with the app and we know it works, let's as
    > Hey copilot, how can I create and publish a new Git branch called "accelerate-with-copilot"?
    > ```
 
-   > 💡 **Tip:** If Copilot doesn't give you quite what you want, you can always continue explaining what you need. Copilot will remember the conversation history for follow-up responses.
+   > 💡 **팁:** 원하는 답변이 아니어도 추가로 설명하면 됩니다. Copilot은 이전 대화 내용을 기억해 후속 응답에 반영합니다.
 
-1. Press the `Run` button to let Copilot insert the terminal command for us. No need to copy and paste!
+1. `Run` 버튼을 눌러 Copilot이 터미널 명령을 직접 삽입하게 하세요. 복사/붙여넣기할 필요가 없습니다.
 
-1. After a moment, look in the VS Code lower status bar, on the left, to see the active branch. It should now say `accelerate-with-copilot`. If so, you are all done with this step!
+1. 잠시 후 VS Code 왼쪽 하단 상태바에서 활성 브랜치를 확인합니다. `accelerate-with-copilot`로 표시되면 이 단계는 완료입니다.
 
-1. Now that your branch is pushed to GitHub, Mona should already be busy checking your work. Give her a moment and keep watch in the comments. You will see her respond with progress info and the next lesson.
+1. 브랜치를 GitHub에 푸시하면 Mona가 자동으로 작업을 검사합니다. 잠시 기다리며 코멘트를 확인하세요. 진행 상황과 다음 레슨이 안내됩니다.
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>문제가 있나요? 🤷</summary><br/>
 
-If you don't get feedback, here are some things to check:
+피드백이 오지 않으면 아래 항목을 확인하세요.
 
-- Make sure your created the branch with the exact name `accelerate-with-copilot`. No prefixes or suffixes.
-- Make sure the branch was indeed published to your repository.
+- 브랜치 이름이 `accelerate-with-copilot`와 정확히 일치하는지 확인하세요. 접두사/접미사는 없어야 합니다.
+- 해당 브랜치가 실제로 내 리포지토리에 게시되었는지 확인하세요.
 
 </details>
