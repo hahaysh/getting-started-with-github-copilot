@@ -87,9 +87,9 @@ jobs:
           vars: |
             step_number: 4
             results_table:
-              - description: "Checked for pytest in requirements.txt"
+              - description: "requirements.txt에 pytest가 추가되었는지 확인"
                 passed: ${{ steps.check-for-pytest.outcome == 'success' }}
-              - description: "Checked if tests are added in a separate directory"
+              - description: "tests/ 디렉터리가 별도로 생성되었는지 확인"
                 passed: ${{ steps.check-tests-dir.outcome == 'success' }}
 
       # END: Check practical exercise

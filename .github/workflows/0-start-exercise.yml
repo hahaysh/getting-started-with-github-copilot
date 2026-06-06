@@ -20,8 +20,8 @@ jobs:
     name: Start Exercise
     uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.8.1
     with:
-      exercise-title: "Getting Started with GitHub Copilot"
-      intro-message: "Welcome to the exciting world of GitHub Copilot! 🚀 In this exercise, you'll unlock the potential of this AI-powered coding assistant to accelerate your development process. Let's dive in and have some fun exploring the future of coding together! 💻✨"
+      exercise-title: "GitHub Copilot 시작하기"
+      intro-message: "GitHub Copilot의 세계에 오신 것을 환영합니다! 🚀 이 실습에서는 AI 기반 코딩 어시스턴트의 잠재력을 발휘해 개발 속도를 높여봅니다. 함께 미래의 코딩을 탐험하며 즐겨봅시다! 💻✨"
 
   post_next_step_content:
     name: Post next step content
