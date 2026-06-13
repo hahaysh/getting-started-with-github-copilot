@@ -23,7 +23,9 @@ _1시간 이내에 GitHub Copilot을 시작해 보세요._
 
 아래 실습 리포지토리를 내 계정으로 복사한 뒤, Octocat(Mona)가 첫 번째 레슨을 준비할 수 있도록 **약 20초** 기다렸다가 **페이지를 새로고침**하세요.
 
-[![실습 복사](https://img.shields.io/badge/실습%20복사-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=getting-started-with-github-copilot&owner=%40me&name=skills-getting-started-with-github-copilot&description=Exercise:+Get+started+using+GitHub+Copilot&visibility=public)
+> 🌍 **한글화 버전**: 이 리포지토리는 한국 개발자를 위해 완벽하게 한글화되었습니다. 아래 "실습 복사" 버튼을 클릭하면 한글 버전으로 자동 복사됩니다.
+
+[![실습 복사](https://img.shields.io/badge/실습%20복사-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=hahaysh&template_name=getting-started-with-github-copilot&owner=%40me&name=getting-started-with-github-copilot-ko&description=Exercise:+Get+started+using+GitHub+Copilot&visibility=public)
 
 <details>
 <summary>문제가 있나요? 🤷</summary><br/>
