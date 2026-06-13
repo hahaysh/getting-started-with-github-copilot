@@ -53,7 +53,7 @@ jobs:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
           comment-id: ${{ steps.find-last-comment.outputs.comment-id }}
-          file: exercise-toolkit/markdown-templates/step-feedback/checking-work.md
+          file: .github/markdown-templates/step-feedback/checking-work.md
           edit-mode: replace
 
       # START: Check practical exercise
@@ -104,7 +104,7 @@ jobs:
           issue-number: ${{ env.ISSUE_NUMBER }}
           comment-id: ${{ steps.find-last-comment.outputs.comment-id }}
           edit-mode: replace
-          file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
+          file: .github/markdown-templates/step-feedback/step-results-table.md
           vars: |
             step_number: 3
             results_table:
