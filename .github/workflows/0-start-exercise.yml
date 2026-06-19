@@ -21,7 +21,7 @@ jobs:
     uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.8.1
     with:
       exercise-title: "GitHub Copilot 시작하기"
-      intro-message: "GitHub Copilot의 세계에 오신 것을 환영합니다! 🚀 이 실습에서는 AI 기반 코딩 어시스턴트의 잠재력을 발휘해 개발 속도를 높여봅니다. 함께 미래의 코딩을 탐험하며 즐겨봅시다! 💻✨"
+      intro-message: "GitHub Copilot의 멋진 세계에 오신 것을 환영합니다! 🚀 이 실습에서는 AI 기반 코딩 보조 도구의 힘을 발휘하여 개발 속도를 높이는 방법을 배우게 됩니다. 함께 코딩의 미래를 탐험하며 즐거운 시간을 보내세요! 💻✨"
 
   post_next_step_content:
     name: Post next step content
@@ -59,7 +59,7 @@ jobs:
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
-          file: exercise-toolkit/markdown-templates/step-feedback/watching-for-progress.md
+          file: .github/markdown-templates/step-feedback/watching-for-progress.md
 
       - name: Enable next step workflow
         run: |
