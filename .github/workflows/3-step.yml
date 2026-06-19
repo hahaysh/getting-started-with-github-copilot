@@ -108,9 +108,9 @@ jobs:
           vars: |
             step_number: 3
             results_table:
-              - description: "Checked app.js for participant info"
+              - description: "app.js에 참가자 정보 반영 여부 확인"
                 passed: ${{ steps.check-app-js.outcome == 'success' }}
-              - description: "Checked styles.css for participant info"
+              - description: "styles.css에 참가자 정보 반영 여부 확인"
                 passed: ${{ steps.check-styles-css.outcome == 'success' }}
 
       # END: Check practical exercise
